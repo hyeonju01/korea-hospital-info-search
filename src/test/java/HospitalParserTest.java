@@ -35,15 +35,4 @@ class HospitalParserTest {
         assertEquals(0, hospital.getTotalNumberOfBeds());
         assertEquals(52.29f, hospital.getTotalAreaSize());
     }
-
-
-
-
-
-
-
-
-
-
-
 }
