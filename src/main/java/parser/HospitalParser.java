@@ -15,7 +15,7 @@ public class HospitalParser implements Parser<Hospital> {
         ...
          */
 
-        String[] row = str.split("\",\"");
+        String[] row = str.replace("\"","").split(",");
         System.out.println(Arrays.toString(row));
         Hospital hospital = new Hospital();
         hospital.setId(Integer.parseInt(row[0].replace("\n","")));
@@ -39,7 +39,11 @@ public class HospitalParser implements Parser<Hospital> {
         hospital.setRoadNameAddress(row[19]);
         hospital.setHospitalName(row[21]);
         hospital.setBusinessTypeName(row[25]);
-        hospital.setHealthcareProviderCount(Integer.parseInt(row[29]));
+        try {
+            hospital.setHealthcareProviderCount(Integer.parseInt(row[29]));
+        } catch (NumberFormatException e) {
+
+        }
         hospital.setPatientRoomCount(Integer.parseInt(row[30]));
         hospital.setTotalNumberOfBeds(Integer.parseInt(row[31]));
         hospital.setTotalAreaSize(Float.parseFloat(row[32].replace("\"", "")));
