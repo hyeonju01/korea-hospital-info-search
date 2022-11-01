@@ -10,6 +10,12 @@ public class HospitalDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //get count
+    public int getCount() {
+        String sql = "select count(id) from nation_wide_hospitals;";
+        return this.jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
     // List<Hospital> insert 쿼리 value 맵핑
     public void add(Hospital hospital) {
         String sql = "INSERT INTO `likelion-db`.`nation_wide_hospitals` " +
